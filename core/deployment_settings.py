@@ -1,17 +1,19 @@
 import os
 import dj_database_url
 from .settings import *
-from .settings import BASE_DIR
 
-ALLOWED_HOSTS=[os.environ.get('RENDER_EXTERNAL_HOSTNAME')]
-CSRG_TRUSTED_ORIGINS=['https://'+os.environ.get('RENDER_EXTERNAL_HOSTNAME')]
-DEBUG=False
-SECRET_KEY=os.environ.gte['SECRET_KEY']
+ALLOWED_HOSTS = [os.environ.get('RENDER_EXTERNAL_HOSTNAME')]
+# Fixed the 'G' to 'F' and added the missing 'get'
+CSRF_TRUSTED_ORIGINS = ['https://' + os.environ.get('RENDER_EXTERNAL_HOSTNAME')] 
+
+DEBUG = False
+# Fixed '.gte' to '.get'
+SECRET_KEY = os.environ.get('SECRET_KEY') 
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware', # Ensure whitenoise is in requirements.txt
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -20,6 +22,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+# ... rest of your code ...
 # CORS_ALLOW_ALL_ORIGINS = True # Allow your React dev server to talk to Django
 # CORS_ALLOWED_ORIGINS=['http://localhost:8081']
 
