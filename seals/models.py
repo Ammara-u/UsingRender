@@ -15,7 +15,7 @@ class Seals(models.Model):
     price=models.IntegerField()
     stock=models.IntegerField(default=0)
     minStock = models.IntegerField(default=5)
-
+ 
 # from django.utils import timezone
 # Sale.objects.create(
 #     seal_name="Seal A",
