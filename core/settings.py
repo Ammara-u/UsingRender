@@ -80,16 +80,28 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'core.wsgi.application'
 
-
+import os
+import dj_database_url  # optional, simplifies parsing
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'djangobackendtutorial_gjas',
+        'USER': 'djangobackendtutorial_gjas_user',
+        'PASSWORD': 'x7TqDHW6cEK03fwOTy16cAq3ySjQ1G6z',
+        'HOST': 'usingrender-x7yq.onrender.com',
+        'PORT': 5432,
     }
 }
+
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 
 # Password validation
