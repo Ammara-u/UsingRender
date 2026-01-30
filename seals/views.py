@@ -25,3 +25,18 @@ def inventory_data(request):
     
     # Convert QuerySet to a list and send as JSON
     return JsonResponse(list(data), safe=False)
+
+def search_seals(request):
+    query = request.GET.get("q", "")
+
+    results = Seal.objects.filter(name__icontains=query)
+
+    data = [
+        {
+            "id": seal.id,
+            "name": seal.name,
+        }
+        for seal in results
+    ]
+
+    return JsonResponse(data, safe=False)

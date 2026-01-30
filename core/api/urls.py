@@ -4,4 +4,5 @@ from seals.api.urls import seals_router
 
 urlpatterns = [
     path('', include(seals_router.urls)),
+    
 ]
