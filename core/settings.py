@@ -15,10 +15,11 @@ SECRET_KEY = 'django-insecure-rc4x=v+g%ujjdt=^pxq79(_5^p_^g%vv9j0wi@to&+kd--t$7x
 DEBUG = True
 
 # ALLOWED_HOSTS = ['localhost','192.168.56.1','127.0.0.1']
-ALLOWED_HOSTS = ["*"]
-
+# ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["usingrender-x7yq.onrender.com", "localhost", "127.0.0.1", "seals-front-end-wh1f.vercel.app/"]
 
 # Application definition
+CORS_ALLOW_CREDENTIALS = True
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -36,6 +37,7 @@ INSTALLED_APPS = [
 
 # For production (recommended)
 CORS_ALLOWED_ORIGINS = [
+    "https://seals-front-end-wh1f.vercel.app",
     "http://localhost:8081",
     "http://localhost:19006",
     "https://usingrender-x7yq.onrender.com",
