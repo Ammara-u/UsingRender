@@ -20,21 +20,21 @@ def seals_list_or_create(request):
         return JsonResponse({"id": seal.id, "nameOfSeal": seal.nameOfSeal}, status=201)
 
 def inventory_data(request):
-    # Fetch all items from your database
-    data = Seals.objects.all()
-    
-    # Convert QuerySet to a list and send as JSON
-    return JsonResponse(list(data), safe=False)
+    # Use .values() to get simple dictionaries that JSON can understand
+    data = list(Seals.objects.all().values())
+    return JsonResponse(data, safe=False)
+
 
 def search_seals(request):
     query = request.GET.get("q", "")
 
-    results = Seals.objects.filter(name__icontains=query)
+    # 1. Use 'nameOfSeal' instead of 'name'
+    results = Seals.objects.filter(nameOfSeal__icontains=query)
 
     data = [
         {
             "id": seal.id,
-            "name": seal.name,
+            "name": seal.nameOfSeal, # 2. Use 'nameOfSeal' here too
         }
         for seal in results
     ]
