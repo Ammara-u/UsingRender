@@ -29,7 +29,7 @@ def inventory_data(request):
 def search_seals(request):
     query = request.GET.get("q", "")
 
-    results = Seal.objects.filter(name__icontains=query)
+    results = Seals.objects.filter(name__icontains=query)
 
     data = [
         {

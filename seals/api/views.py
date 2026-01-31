@@ -2,12 +2,12 @@ from rest_framework import viewsets
 from rest_framework.decorators import action
 from rest_framework.response import Response
 
-from ..models import Seal, Sale
+from ..models import Seals, Sale
 from .serializers import SealSerializer, SaleSerializer
 
 
 class SealsViewSet(viewsets.ModelViewSet):
-    queryset = Seal.objects.all()
+    queryset = Seals.objects.all()
     serializer_class = SealSerializer
 
     @action(detail=False, methods=["get"])
@@ -17,7 +17,7 @@ class SealsViewSet(viewsets.ModelViewSet):
         if not q:
             return Response([])
 
-        seals = Seal.objects.filter(NameOfSeal__icontains=q)
+        seals = Seals.objects.filter(NameOfSeal__icontains=q)
         serializer = self.get_serializer(seals, many=True)
         return Response(serializer.data)
 
