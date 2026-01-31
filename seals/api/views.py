@@ -1,30 +1,27 @@
 from rest_framework import viewsets
-from ..models import Seals, Sale  # Must be 'Seals'
-from .serializers import SealsSerializer, SaleSerializer
-from django.http import JsonResponse
-from ..models import Inventory
+from rest_framework.decorators import action
+from rest_framework.response import Response
 
-class sealsViewSet(viewsets.ModelViewSet):
-    queryset = Seals.objects.all() 
-    serializer_class = SealsSerializer
+from ..models import Seal, Sale
+from .serializers import SealSerializer, SaleSerializer
 
-class saleViewSet(viewsets.ModelViewSet):
+
+class SealsViewSet(viewsets.ModelViewSet):
+    queryset = Seal.objects.all()
+    serializer_class = SealSerializer
+
+    @action(detail=False, methods=["get"])
+    def search(self, request):
+        q = request.query_params.get("q", "").strip()
+
+        if not q:
+            return Response([])
+
+        seals = Seal.objects.filter(NameOfSeal__icontains=q)
+        serializer = self.get_serializer(seals, many=True)
+        return Response(serializer.data)
+
+
+class SaleViewSet(viewsets.ModelViewSet):
     queryset = Sale.objects.all()
     serializer_class = SaleSerializer
-    
-def search_seals(request):
-    query = request.GET.get("q", "")
-    
-    results = Inventory.objects.filter(name__icontains=query)
-
-    data = [
-        {
-            "id": item.id,
-            "title": item.name,
-            "category": item.category,
-            "route": f"/inventory/{item.id}",
-        }
-        for item in results
-    ]
-
-    return JsonResponse(data, safe=False)
