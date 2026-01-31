@@ -3,12 +3,12 @@ from rest_framework.decorators import action
 from rest_framework.response import Response
 
 from ..models import Seals, Sale
-from .serializers import SealSerializer, SaleSerializer
+from .serializers import SealsSerializer, SaleSerializer
 
 
 class SealsViewSet(viewsets.ModelViewSet):
     queryset = Seals.objects.all()
-    serializer_class = SealSerializer
+    serializer_class = SealsSerializer
 
     @action(detail=False, methods=["get"])
     def search(self, request):
