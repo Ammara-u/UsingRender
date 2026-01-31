@@ -33,7 +33,7 @@ def search_seals(request):
 
     data = [
         {
-            "id": seal.id,
+            "id": seal.partCode,
             "name": seal.nameOfSeal, # 2. Use 'nameOfSeal' here too
         }
         for seal in results
