@@ -33,7 +33,7 @@ class SealsViewSet(viewsets.ModelViewSet):
                     "id": seal.id,
                     "title": seal.nameOfSeal,
                     "category": "Seal",
-                    "route": f"/seal/{seal.id}"
+                    "route": f"/{seal.id}"
                 })
             
             return Response(results, status=status.HTTP_200_OK)
