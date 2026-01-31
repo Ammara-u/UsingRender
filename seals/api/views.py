@@ -9,3 +9,5 @@ class sealsViewSet(viewsets.ModelViewSet):
 class saleViewSet(viewsets.ModelViewSet):
     queryset = Sale.objects.all()
     serializer_class = SaleSerializer
+    
+    
