@@ -36,12 +36,8 @@ INSTALLED_APPS = [
 
 
 # For production (recommended)
-CORS_ALLOWED_ORIGINS = [
-    "https://seals-front-end-wh1f.vercel.app",
-    "http://localhost:8081",
-    "http://localhost:19006",
-    "https://usingrender-x7yq.onrender.com",
-]
+# In settings.py - ONLY FOR TESTING
+CORS_ALLOW_ALL_ORIGINS = True
 
 CORS_ALLOW_METHODS = [
     'GET',
