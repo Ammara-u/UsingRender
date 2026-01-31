@@ -39,13 +39,7 @@ INSTALLED_APPS = [
 # In settings.py - ONLY FOR TESTING
 CORS_ALLOW_ALL_ORIGINS = True
 
-CORS_ALLOW_METHODS = [
-    'GET',
-    'POST',
-    'PUT',
-    'DELETE',
-    'OPTIONS',
-]
+CORS_ALLOW_METHODS = ['*']
 
 CORS_ALLOW_HEADERS = [
     'content-type',
