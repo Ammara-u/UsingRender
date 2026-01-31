@@ -18,8 +18,18 @@ class SealsViewSet(viewsets.ModelViewSet):
             return Response([])
 
         seals = Seals.objects.filter(NameOfSeal__icontains=q)
-        serializer = self.get_serializer(seals, many=True)
-        return Response(serializer.data)
+        
+        # Transform the results to match your frontend interface
+        results = []
+        for seal in seals:
+            results.append({
+                "id": seal.id,
+                "title": seal.NameOfSeal,
+                "category": "Seal",  # or use a field from your model
+                "route": f"/seal-detail/{seal.id}"  # Adjust route as needed
+            })
+        
+        return Response(results)
 
 
 class SaleViewSet(viewsets.ModelViewSet):

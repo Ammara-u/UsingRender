@@ -5,7 +5,7 @@ from .views import SealsViewSet, SaleViewSet
 # Use this specific name 'seals_router' to fix the ImportError you had earlier
 seals_router = DefaultRouter()
 seals_router.register(r'seals', SealsViewSet, basename="seals")
-seals_router.register(r'sales', SaleViewSet, basename="seals") # This registers the /api/sales/ path
+seals_router.register(r'sales', SaleViewSet) # This registers the /api/sales/ path
 
 urlpatterns = [
     path('', include(seals_router.urls)),
