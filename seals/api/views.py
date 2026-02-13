@@ -21,7 +21,7 @@ class SealsViewSet(viewsets.ModelViewSet):
 
             # Search across multiple fields
             seals = Seals.objects.filter(
-                Q(nameOfSeal__icontains=q) |      # Search by name
+                Q(id__icontains=q) |
                 Q(description__icontains=q) |      # Search by description
                 Q(partCode__icontains=q)           # Search by part code
             )[:20]  # Limit to 20 results
@@ -31,7 +31,7 @@ class SealsViewSet(viewsets.ModelViewSet):
             for seal in seals:
                 results.append({
                     "id": seal.id,
-                    "title": seal.nameOfSeal,
+                    "title": seal.partCode,
                     "category": "Seal",
                     "route": f"/{seal.id}"
                 })

@@ -90,24 +90,24 @@ import dj_database_url  # optional, simplifies parsing
 
 # BASE_DIR = Path(__file__).resolve().parent.parent
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'djangobackendtutorial_gjas',
-        'USER': 'djangobackendtutorial_gjas_user',
-        'PASSWORD': 'x7TqDHW6cEK03fwOTy16cAq3ySjQ1G6z',
-        'HOST': 'usingrender-x7yq.onrender.com',
-        'PORT': 5432,
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'djangobackendtutorial_gjas',
+#         'USER': 'djangobackendtutorial_gjas_user',
+#         'PASSWORD': 'x7TqDHW6cEK03fwOTy16cAq3ySjQ1G6z',
+#         'HOST': 'usingrender-x7yq.onrender.com',
+#         'PORT': 5432,
+#     }
+# }
 
 AUTH_PASSWORD_VALIDATORS = [
     {

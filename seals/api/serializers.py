@@ -3,7 +3,7 @@ from ..models import Seals
 class SealsSerializer(ModelSerializer):
     class Meta:
         model=Seals
-        fields = ['id', 'nameOfSeal', 'partCode', 'description', 'price', 'stock', 'minStock']        
+        fields = ['id', 'partCode', 'description', 'price', 'stock', 'minStock']        
 from rest_framework import serializers
 from ..models import Seals, Sale
 
