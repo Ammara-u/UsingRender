@@ -9,13 +9,19 @@ from ..models import Seals, Sale
 
 class SaleSerializer(serializers.ModelSerializer):
     # Change 'seal.nameOfSeal' to 'sealName' if that's your field name
-    seal_name = serializers.ReadOnlyField(source='sealName') 
+    seal_partCode = serializers.ReadOnlyField(source='partCode') 
     total_price = serializers.SerializerMethodField()
 
     class Meta:
         model = Sale
-        # Ensure 'seal' is changed to 'sealName' here
-        fields = ['id', 'sealName', 'seal_name', 'quantity', 'sold_price', 'date_sold', 'total_price']
-
+        # 2. Inclusion (This is where the fix happens)
+        fields = [
+            'id',  
+            'seal_partCode',  # <--- MUST be here!
+            'quantity', 
+            'sold_price', 
+            'date_sold', 
+            'total_price'
+        ]
     def get_total_price(self, obj):
         return obj.quantity * obj.sold_price
