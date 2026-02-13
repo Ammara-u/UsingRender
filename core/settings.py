@@ -97,17 +97,30 @@ import dj_database_url  # optional, simplifies parsing
 #     }
 # }
 
+import dj_database_url
+import os
+
+# Copy the "External Database URL" from your Render Dashboard
+DATABASE_URL = "postgresql://database_k4pc_user:bWp6VRHaxKKYCwLAAT6OfShw8gQliXQg@dpg-d67m5cc9c44c73dn06q0-a/database_k4pc"
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'database_k4pc',
-        'USER': 'database_k4pc_user',
-        'PASSWORD': 'bWp6VRHaxKKYCwLAAT6OfShw8gQliXQg',
-        'HOST': 'https://usingrender-x7yq.onrender.com',
-        'PORT': 5432,
-    }
+    'default': dj_database_url.config(
+        default=DATABASE_URL,
+        conn_max_age=600,
+        ssl_require=True  # This tells Django to use SSL (Required by Render)
+    )
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'database_k4pc',
+#         'USER': 'database_k4pc_user',
+#         'PASSWORD': 'bWp6VRHaxKKYCwLAAT6OfShw8gQliXQg',
+#         'HOST': 'https://usingrender-x7yq.onrender.com',
+#         'PORT': 5432,
+#     }
+# }
 
 AUTH_PASSWORD_VALIDATORS = [
     {
