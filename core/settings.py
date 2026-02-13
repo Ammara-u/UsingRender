@@ -104,7 +104,7 @@ DATABASES = {
         'NAME': 'database_k4pc',
         'USER': 'database_k4pc_user',
         'PASSWORD': 'bWp6VRHaxKKYCwLAAT6OfShw8gQliXQg',
-        'HOST': 'usingrender-x7yq.onrender.com',
+        'HOST': 'dpg-d5t1cc8gjchc73ban62g-a.oregon-postgres.render.com',
         'PORT': 5432,
     }
 }
