@@ -105,7 +105,7 @@ import dj_database_url
 import os
 
 # MAKE SURE this string includes '.oregon-postgres.render.com' (or similar)
-EXTERNAL_URL = "postgres://user:password@dpg-d5t1cc8gjchc73ban62g-a.oregon-postgres.render.com/database_k4pc"
+EXTERNAL_URL = "postgresql://database_k4pc_user:bWp6VRHaxKKYCwLAAT6OfShw8gQliXQg@dpg-d67m5cc9c44c73dn06q0-a.singapore-postgres.render.com/database_k4pc"
 
 DATABASES = {
     'default': dj_database_url.config(
