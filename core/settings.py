@@ -117,8 +117,6 @@ import os
 import dj_database_url
 
 
-import os
-import dj_database_url
 
 
 DATABASES = {
