@@ -4,7 +4,7 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
+import dj_database_url
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
 
@@ -16,7 +16,7 @@ DEBUG = True
 
 # ALLOWED_HOSTS = ['localhost','192.168.56.1','127.0.0.1']
 # ALLOWED_HOSTS = ["*"]
-ALLOWED_HOSTS = ["usingrender-x7yq.onrender.com", "localhost", "127.0.0.1", "seals-front-end-wh1f.vercel.app/"]
+ALLOWED_HOSTS = ["usingrender-x7yq.onrender.com", "localhost", "127.0.0.1", "seals-front-end-wh1f.vercel.app"]
 
 # Application definition
 CORS_ALLOW_CREDENTIALS = True
@@ -90,15 +90,7 @@ import dj_database_url  # optional, simplifies parsing
 
 # BASE_DIR = Path(__file__).resolve().parent.parent
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
 
-import dj_database_url
-import os
 
 # Copy the "External Database URL" from your Render Dashboard
 # import dj_database_url
@@ -114,20 +106,27 @@ import os
 #         ssl_require=True
 #     )
 # }
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'database_k4pc',
-        'USER': 'database_k4pc_user',
-        'PASSWORD': 'bWp6VRHaxKKYCwLAAT6OfShw8gQliXQg',
-        'HOST': 'dpg-d67m5cc9c44c73dn06q0-a.singapore-postgres.render.com',
-        'PORT': '5432',
-        'OPTIONS': {
-            'sslmode': 'require',
-        },
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+DATABASES["default"]=dj_database_url.parse("postgresql://database_k4pc_user:bWp6VRHaxKKYCwLAAT6OfShw8gQliXQg@dpg-d67m5cc9c44c73dn06q0-a.singapore-postgres.render.com/database_k4pc")
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'database_k4pc',
+#         'USER': 'database_k4pc_user',
+#         'PASSWORD': 'bWp6VRHaxKKYCwLAAT6OfShw8gQliXQg',
+#         'HOST': 'dpg-d67m5cc9c44c73dn06q0-a.singapore-postgres.render.com',
+#         'PORT': '5432',
+#         'OPTIONS': {
+#             'sslmode': 'require',
+#         },
+#     }
+# }
 
 AUTH_PASSWORD_VALIDATORS = [
     {

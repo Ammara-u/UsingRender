@@ -14,7 +14,7 @@ class Sale(models.Model):
 class Seals(models.Model):
     # nameOfSeal=models.CharField(max_length=200)
     partCode = models.CharField(max_length=100, null=True, blank=True)
-    description=models.CharField(max_length=300)
+    description=models.CharField(max_length=300, blank=True,null=True,)
     price=models.IntegerField()
     stock=models.IntegerField(default=0)
     minStock = models.IntegerField(default=500)
