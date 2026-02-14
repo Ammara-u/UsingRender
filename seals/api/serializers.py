@@ -7,10 +7,9 @@ class SealsSerializer(ModelSerializer):
         fields = ['id', 'partCode', 'description', 'price', 'stock', 'minStock']        
 
 from rest_framework import serializers
-from ..models import Seals, Sale
+from ..models import Sale
 
 class SaleSerializer(serializers.ModelSerializer):
-    partCode = serializers.ReadOnlyField(source='seal.partCode')
     total_price = serializers.SerializerMethodField()
 
     class Meta:
