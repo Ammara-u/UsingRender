@@ -1,3 +1,5 @@
+# The code defines two Django models, `Sale` and `Seals`, for managing sales and inventory items with
+# specific fields and attributes.
 # The code defines two Django models, `Sale` and `Seals`, for managing sales and inventory items
 # respectively.
 from django.db import models

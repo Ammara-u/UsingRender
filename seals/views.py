@@ -17,7 +17,7 @@ def seals_list_or_create(request):
     if request.method == 'POST':
         new_data = json.loads(request.body)
         seal = Seals.objects.create(**new_data)
-        return JsonResponse({"id": seal.id, "partCode": seal.partCode}, status=201)
+        return JsonResponse({"id": seal.id, "nameOfSeal": seal.nameOfSeal}, status=201)
 
 def inventory_data(request):
     # Use .values() to get simple dictionaries that JSON can understand
@@ -34,7 +34,7 @@ def search_seals(request):
     data = [
         {
             "id": seal.partCode,
-            "name": seal.quantity,
+            "name": seal.nameOfSeal, # 2. Use 'nameOfSeal' here too
         }
         for seal in results
     ]
