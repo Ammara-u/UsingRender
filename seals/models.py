@@ -5,7 +5,7 @@ from django.db import models
 
 class Sale(models.Model):
     # sealName = models.CharField(max_length=200)  # Link to your inventory item
-    partCode = models.CharField(max_length=100, null=True, blank=True)
+    partCode = models.CharField(max_length=100)
     quantity = models.IntegerField()
     sold_price = models.DecimalField(max_digits=10, decimal_places=2)
     date_sold = models.DateTimeField(auto_now_add=True)
@@ -13,7 +13,7 @@ class Sale(models.Model):
 # Create your models here.
 class Seals(models.Model):
     # nameOfSeal=models.CharField(max_length=200)
-    partCode = models.CharField(max_length=100, null=True, blank=True)
+    partCode = models.CharField(max_length=100)
     description=models.CharField(max_length=300, blank=True,null=True,)
     price=models.IntegerField()
     stock=models.IntegerField(default=0)
