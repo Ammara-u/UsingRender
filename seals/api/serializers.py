@@ -17,7 +17,7 @@ class SaleSerializer(serializers.ModelSerializer):
         # 2. Inclusion (This is where the fix happens)
         fields = [
             'id',  
-            'seal_partCode',  # <--- MUST be here!
+            'partCode',  # <--- MUST be here!
             'quantity', 
             'sold_price', 
             'date_sold', 
