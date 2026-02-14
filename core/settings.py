@@ -106,13 +106,30 @@ import dj_database_url  # optional, simplifies parsing
 #         ssl_require=True
 #     )
 # }
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
+import os
+import dj_database_url
+
+
+import os
+import dj_database_url
+
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': dj_database_url.config(
+        default=os.getenv("DATABASE_URL"),
+        conn_max_age=600,
+        ssl_require=True,
+    )
 }
-DATABASES["default"]=dj_database_url.parse("postgresql://database_k4pc_user:bWp6VRHaxKKYCwLAAT6OfShw8gQliXQg@dpg-d67m5cc9c44c73dn06q0-a.singapore-postgres.render.com/database_k4pc")
+
+
 
 # DATABASES = {
 #     'default': {
