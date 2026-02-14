@@ -9,7 +9,7 @@ from ..models import Seals, Sale
 
 class SaleSerializer(serializers.ModelSerializer):
     # Change 'seal.nameOfSeal' to 'sealName' if that's your field name
-    seal_partCode = serializers.ReadOnlyField(source='partCode') 
+    partCode = serializers.ReadOnlyField(source='partCode') 
     total_price = serializers.SerializerMethodField()
 
     class Meta:
